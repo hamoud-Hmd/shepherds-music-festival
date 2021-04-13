@@ -179,7 +179,7 @@ a {
 
 /* info  */
 #info-main {
-	height: 80vh;
+	margin: 1rem 0;
 }
 #info-main .container > div {
 	width: 500px;
@@ -224,5 +224,17 @@ img {
 
 	.image-grid {
 		grid-template-columns: repeat(2, 1fr);
+		padding: 0;
+	}
+
+	#info-main .container > div {
+		width: 300px;
+		padding: 2rem;
+	}
+
+	.lead {
+		font-size: 3rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
 	}
 }
