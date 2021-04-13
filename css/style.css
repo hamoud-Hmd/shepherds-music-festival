@@ -208,7 +208,6 @@ img {
 .image-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	object-fit: cover;
 	padding: 2rem;
 }
 
@@ -221,5 +220,9 @@ img {
 @media (max-width: 648px) {
 	#navbar a {
 		font-size: 1rem;
+	}
+
+	.image-grid {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
