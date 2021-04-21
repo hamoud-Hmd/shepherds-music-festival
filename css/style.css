@@ -582,6 +582,7 @@ ul.sub-nav.visible {
 #gallery .image-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 2rem;
 	align-items: center;
 	justify-content: center;
 	margin-right: auto;
@@ -672,19 +673,14 @@ ul.sub-nav.visible {
 	width: 70%;
 	height: 300px;
 	padding: 0.4rem;
-	background: url(../images/home-bg.jpg) no-repeat right / cover;
+	background-image: url(../images/home-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 	margin: auto;
 	border: 5px solid;
 	border-radius: 10px;
 	overflow: hidden;
-	transition: all 0.5s;
-}
-
-#main-tnt .pics-from-tnt .slide-show img {
-	height: 100%;
-	object-fit: cover;
-	width: 100%;
-	box-shadow: 0 0 8px 8px #888;
 }
 
 /* End Slid show */

@@ -13,16 +13,17 @@ const fullImage = document.querySelector('.full-image');
 // End variables for lightbox
 
 //Slide show Variables
-const slideImage = document.querySelector('.slide-show img');
+const slideImage = document.querySelector('.slide-show');
 const images = [];
 let i = 0;
 let time = 3000;
 //End Slide show variables
 allImages.forEach(image => {
-	images.push(image.getAttribute('src'));
+	images.push(image.getAttribute('data-original'));
 });
 function changeImage() {
-	slideImage.src = images[i];
+	slideImage.style.backgroundImage = `url(${images[i]})`;
+	slideImage.style.transition = `background 1s ease-in-out`;
 	if (i < images.length - 1) {
 		i++;
 	} else {
@@ -43,7 +44,7 @@ const commissionFactory = (title, info, image, commissionHead, tel, email) => {
 const mediaCommitte = commissionFactory(
 	'لجنة الإعلام',
 	'تتكون لجنة الإعلام للمهرجان من وحدات متخصصة تعمل كل منها وفق استراتيجية ورؤية شاملة لللجنة  وبقدر من المرونة بما يحقق لها قدرة على الحركة للوصول للخبر والمعلومة في الوقت المناسب وبالدقة والمصداقية اللازمة .',
-	'brahin.jpeg',
+	'brahim.jpeg',
 	'Brahim Eman',
 	'+22227930683',
 	'brahimeman@gmail.com'
@@ -91,7 +92,7 @@ function displaycommitte(committe) {
 				<p class="email">${com.email}</p>
 			</div>
 			<img
-				src="images/${com.image}"
+				src="images/committee/${com.image}"
 				alt="${com.commissionHead}"
 			/>
 		</div>
