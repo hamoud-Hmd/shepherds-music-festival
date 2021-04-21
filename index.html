@@ -2,82 +2,186 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-			crossorigin="anonymous"
-		/>
+		<title>Shepherds' Music Festival | home</title>
+		<!-- Main Template CSS File -->
+		<link rel="stylesheet" href="css/style.css" />
+
+		<!-- Render All Elements Normally  -->
+		<link rel="stylesheet" href="css/normalize.css" />
+
+		<!-- Fonts Awesome Library -->
+		<link rel="stylesheet" href="css/all.css" />
+
+		<!-- Google fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;500&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;500;800&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="css/style.css" />
-		<title>Shepherds' Music</title>
+
+		<!-- Main Script -->
+		<script src="js/script.js" defer></script>
 	</head>
 	<body id="home">
-		<header class="hero">
-			<nav>
-				<div class="navbar">
-					<img src="images/logo.png" alt="" class="logo" />
-					<ul id="navbar">
-						<li><a href="index.html" class="current">الرئيسية</a></li>
-						<li>
-							<a href="#">أقسام الموقع<i class="fas fa-angle-down"></i> </a>
-							<ul>
-								<li><a href="#">منوعات</a></li>
-								<li>
-									<a href="#"
-										>اللجان<i class="fas fa-angle-down"></i>
-										<ul>
-											<li><a href="#">اللجنة الفنية</a></li>
-											<li><a href="#">اللجنة المالية</a></li>
-											<li><a href="#">لجنة الإعلام</a></li>
-											<li><a href="#">لجنة المرافقات</a></li>
-											<li><a href="#">لجنة العلاقات الخارجية</a></li>
-										</ul></a
-									>
-								</li>
-								<li><a href="#">جديدنا</a></li>
-							</ul>
-						</li>
-						<li><a href="info.html">من نحن</a></li>
-						<li><a href="contact.html">تواصل معنا</a></li>
-					</ul>
+		<header class="header" id="home-header">
+			<div class="container">
+				<img src="images/logo.png" alt="" class="logo" />
+				<img src="images/text.png" alt="" class="logo-text" />
+				<div class="links">
+					<div class="icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<aside id="aside">
+						<ul class="nav-bar">
+							<li><a href="index.html" class="current">الرئيسية</a></li>
+
+							<li class="dropdown-nav">
+								<a class="anchor"
+									>أقسام الموقع<i class="fas fa-angle-down"></i>
+								</a>
+								<ul class="sub-nav">
+									<li><a href="tnt.html">أفل</a></li>
+									<li><a href="#">فنادق</a></li>
+									<li><a href="#">مسابقات المهرجان</a></li>
+									<li>
+										<a href="commission.html">اللجان</a>
+									</li>
+								</ul>
+							</li>
+
+							<li><a href="info.html">من نحن</a></li>
+							<li><a href="contact.html">تواصل معنا</a></li>
+						</ul>
+					</aside>
 				</div>
-			</nav>
-
-			<div class="content">
-				<h1>مهرجان موسيقى الرعاة الدولي</h1>
-				<h1>International Shepherds' Music Festival</h1>
-
-				<p>فريدي الطينطان</p>
-				<p>Vreidy Tintane</p>
 			</div>
 		</header>
-		<main id="home-main">
-			<div class="container">
-				<h1 class="lead">صور من المهرجان</h1>
-				<div class="image-grid">
-					<img src="https://source.unsplash.com/user/erondu/daily" /><img
-						src="https://source.unsplash.com/weekly?water"
-					/>
-					<img src="https://source.unsplash.com/weekly?desert" /><img
-						src="https://source.unsplash.com/weekly?animal"
-					/><img src="https://source.unsplash.com/weekly?cow" /><img
-						src="https://source.unsplash.com/weekly?camel"
-					/><img src="https://source.unsplash.com/weekly?sea" /><img
-						src="https://source.unsplash.com/weekly?fish"
-					/><img src="https://source.unsplash.com/weekly?tree" /><img
-						src="https://source.unsplash.com/weekly?horse"
-					/><img src="https://source.unsplash.com/weekly?desert" /><img
-						src="https://source.unsplash.com/weekly?sheep"
-					/>
+		<!-- Main  -->
+		<main id="main-home">
+			<section class="section-intro">
+				<div class="container">
+					<div class="content">
+						<h1 class="arb">
+							<span
+								class="txt-type"
+								data-wait="3000"
+								data-words='["مهرجان موسيقى الرعات الدولي", "International Shepherds Music Festival"]'
+							></span>
+						</h1>
+
+						<p class="arb">
+							موسم ثقافي فني رياضي بيئي سنوي، يقدم مختلف مظاهر حياة الإنسان
+							الموريتاني في وسطه الأصلي "البادية".
+						</p>
+						<a href="info.html" class="btn btn-outline">Read More</a>
+					</div>
 				</div>
-			</div>
+			</section>
+
+			<!-- Gallary Section -->
+
+			<section id="gallery">
+				<div class="container">
+					<div class="modal">
+						<img src="" alt="" class="full-image" />
+						<p class="caption"></p>
+					</div>
+					<div class="image-grid">
+						<div class="img-container">
+							<img
+								src="images/sunRise.jpg"
+								data-original="images/sunRise.jpg"
+								alt="The sunrise in the village"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="images/sunshine.jpg"
+								data-original="images/sunshine.jpg"
+								alt="this tree is green"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?cliff"
+								data-original="https://source.unsplash.com/1600x900?cliff"
+								alt="Don't jump from this high"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?mountain"
+								data-original="https://source.unsplash.com/1600x900?mountain"
+								alt="Mountain fountain"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="images/anotherone.jpg"
+								data-original="images/anotherone.jpg"
+								alt="The ocean is blue"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?birds"
+								data-original="https://source.unsplash.com/1600x900?birds"
+								alt="Some birds"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?sheep"
+								data-original="https://source.unsplash.com/1600x900?sheep"
+								alt="The stupidest animal ever"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?shep"
+								data-original="https://source.unsplash.com/1600x900?shep"
+								alt="Is this related to sheping"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?sea"
+								data-original="https://source.unsplash.com/1600x900?sea"
+								alt="The sea is scary"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?camel"
+								data-original="https://source.unsplash.com/1600x900?camel"
+								alt="The strongest animal in the desert"
+							/>
+						</div>
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?nature"
+								data-original="https://source.unsplash.com/1600x900?nature"
+								alt="The mother Nature"
+							/>
+						</div>
+
+						<div class="img-container">
+							<img
+								src="https://source.unsplash.com/400x400?hill"
+								data-original="https://source.unsplash.com/1600x600?hill"
+								alt="Something related to hills"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
+
+		<!-- Footer -->
 		<footer class="footer bg-primary">
 			<div class="container">
 				<div class="social">
@@ -89,5 +193,6 @@
 				<p>Copyright &copy; 2021 - vreidy Created by Hamoud Hmd</p>
 			</div>
 		</footer>
+		<script src="js/typewriter.js"></script>
 	</body>
 </html>
