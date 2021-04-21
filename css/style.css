@@ -516,9 +516,10 @@ ul.sub-nav.visible {
 
 #info-main {
 	margin: 1rem 0;
+	padding: 1rem;
 }
 #info-main .container > div {
-	width: 500px;
+	max-width: 500px;
 	direction: rtl;
 	margin: auto;
 	text-align: justify;
@@ -533,6 +534,7 @@ ul.sub-nav.visible {
 	margin-right: 0;
 	list-style-image: url(../images/listImage1.png);
 }
+
 #info-main .container > div ul li {
 	padding: 0;
 }
