@@ -5,35 +5,14 @@ const aside = document.getElementById('aside');
 const commissions = document.querySelectorAll('.commissions .btn');
 
 // Variables for lightbox
-const allImages = document.querySelectorAll('.image-grid img');
-const modalImage = document.querySelector('.modal');
-const caption = document.querySelector('.caption');
-const fullImage = document.querySelector('.full-image');
+
+// const allImages = document.querySelectorAll('.image-grid img');
+// const modalImage = document.querySelector('.modal');
+// const caption = document.querySelector('.caption');
+// const fullImage = document.querySelector('.full-image');
 
 // End variables for lightbox
 
-//Slide show Variables
-const slideImage = document.querySelector('.slide-show');
-const images = [];
-let i = 0;
-let time = 3000;
-//End Slide show variables
-allImages.forEach(image => {
-	images.push(image.getAttribute('data-original'));
-});
-function changeImage() {
-	slideImage.style.backgroundImage = `url(${images[i]})`;
-
-	if (i < images.length - 1) {
-		i++;
-	} else {
-		i = 0;
-	}
-
-	setTimeout('changeImage()', time);
-}
-
-window.onload = changeImage;
 const commissionArray = [];
 
 const commissionFactory = (title, info, image, commissionHead, tel, email) => {
@@ -126,19 +105,19 @@ const animationHandler = () => {
 hamburgerBtn.addEventListener('click', animationHandler);
 
 //Start Lightbox section
-allImages.forEach(img => {
-	img.addEventListener('click', () => {
-		const fullImageSrc = img.getAttribute('data-original');
-		fullImage.src = fullImageSrc;
-		modalImage.classList.add('open');
-		fullImage.classList.add('open');
-		caption.textContent = img.getAttribute('alt');
-	});
-});
+// allImages.forEach(img => {
+// 	img.addEventListener('click', () => {
+// 		const fullImageSrc = img.getAttribute('data-original');
+// 		fullImage.src = fullImageSrc;
+// 		modalImage.classList.add('open');
+// 		fullImage.classList.add('open');
+// 		caption.textContent = img.getAttribute('alt');
+// 	});
+// });
 
-modalImage.addEventListener('click', e => {
-	if (e.target !== e.currentTarget) return;
-	modalImage.classList.remove('open');
-	fullImage.classList.remove('open');
-});
+// modalImage.addEventListener('click', e => {
+// 	if (e.target !== e.currentTarget) return;
+// 	modalImage.classList.remove('open');
+// 	fullImage.classList.remove('open');
+// });
 // End Lightbox secotion

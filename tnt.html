@@ -85,95 +85,34 @@
 				<p>Copyright &copy; 2021 - vreidy Created by Hamoud Hmd</p>
 			</div>
 		</footer>
-		<!-- It won't appear don't worry -->
 
-		<div class="image-grid modal">
-			<div class="img-container">
-				<img
-					src="images/preview/image1.jpg"
-					data-original="images/full/image1.jpg"
-					alt="The sunrise in the village"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image2.jpg"
-					data-original="images/full/image2.jpg"
-					alt="this tree is green"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image3.jpg"
-					data-original="images/full/image3.jpg"
-					alt="Don't jump from this high"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image4.jpg"
-					data-original="images/full/image4.jpg"
-					alt="Mountain fountain"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image5.jpg"
-					data-original="images/full/image4.jpg"
-					alt="The ocean is blue"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image6.jpg"
-					data-original="images/full/image6.jpg"
-					alt="Some birds"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image7.jpg"
-					data-original="images/full/image7.jpg"
-					alt="The stupidest animal ever"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image8.jpg"
-					data-original="images/full/image8.jpg"
-					alt="Is this related to sheping"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image9.jpg"
-					data-original="images/full/image9.jpg"
-					alt="The sea is scary"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image10.jpg"
-					data-original="images/full/image10.jpg"
-					alt="The strongest animal in the desert"
-				/>
-			</div>
-			<div class="img-container">
-				<img
-					src="images/preview/image11.jpg"
-					data-original="images/full/image11.jpg"
-					alt="The mother Nature"
-				/>
-			</div>
+		<script>
+			//Slide show Variables
+			const slideImage = document.querySelector('.slide-show');
+			const images = [];
+			let i = 0;
+			let time = 3000;
+			//End Slide show variables
 
-			<div class="img-container">
-				<img
-					src="images/preview/image12.jpg"
-					data-original="images/full/image12.jpg"
-					alt="Something related to hills"
-				/>
-			</div>
-		</div>
-		<script src="js/typewriter.js"></script>
+			images.push('images/full/image1.jpg');
+			images.push('images/full/image2.jpg');
+			images.push('images/full/image3.jpg');
+			images.push('images/full/image4.jpg');
+			images.push('images/full/image5.jpg');
+
+			function changeImage() {
+				slideImage.style.backgroundImage = `url(${images[i]})`;
+
+				if (i < images.length - 1) {
+					i++;
+				} else {
+					i = 0;
+				}
+
+				setTimeout('changeImage()', time);
+			}
+
+			window.onload = changeImage;
+		</script>
 	</body>
 </html>
