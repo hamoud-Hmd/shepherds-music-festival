@@ -23,7 +23,7 @@ allImages.forEach(image => {
 });
 function changeImage() {
 	slideImage.style.backgroundImage = `url(${images[i]})`;
-	slideImage.style.transition = `background 1s ease-in-out`;
+
 	if (i < images.length - 1) {
 		i++;
 	} else {

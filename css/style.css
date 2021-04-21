@@ -447,6 +447,11 @@ ul.sub-nav.visible {
 		justify-content: center;
 		gap: 1rem;
 	}
+
+	.lead {
+		font-size: 1.4rem;
+		letter-spacing: 0;
+	}
 }
 /* End Media queries */
 
@@ -680,6 +685,7 @@ ul.sub-nav.visible {
 	margin: auto;
 	border: 5px solid;
 	border-radius: 10px;
+	transition: all 0.2s ease-in;
 	overflow: hidden;
 }
 
