@@ -600,6 +600,9 @@ ul.sub-nav.visible {
 }
 
 @media (max-width: 767px) {
+	.commissions-wrapper {
+		flex-direction: column-reverse;
+	}
 	.contact-main .container {
 		flex-direction: column;
 	}
