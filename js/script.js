@@ -3,6 +3,7 @@ const subNavItems = document.querySelectorAll('.sub-nav > li');
 const hamburgerBtn = document.querySelector('.icon');
 const aside = document.getElementById('aside');
 const commissions = document.querySelectorAll('.commissions .btn');
+let asideIsOpen = false;
 
 // Variables for lightbox
 
@@ -15,8 +16,19 @@ const commissions = document.querySelectorAll('.commissions .btn');
 
 const commissionArray = [];
 
-const commissionFactory = (title, info, image, commissionHead, tel, email) => {
-	return { title, info, image, commissionHead, tel, email };
+const commissionFactory = (
+	title,
+	info,
+	image,
+	commissionHead,
+	tel,
+	email,
+	members
+) => {
+	return { title, info, image, commissionHead, tel, email, members };
+};
+const memberFactory = (name, image, info, tel, email) => {
+	return { name, image, info, tel, email };
 };
 
 // committe infos
@@ -40,7 +52,42 @@ const TechCommittee = commissionFactory(
 	'sidiYahya.jpeg',
 	'سيدي يحي',
 	'+22236310668',
-	'sidiyahya@aisnmaurirania.com'
+	'sidiyahya@aisnmaurirania.com',
+	[
+		memberFactory(
+			'سلي عبد الفتاح',
+			'souley.jpeg',
+			`
+					تاريخ الميلاد :1982
+		مكان ميلاد:انواكشوط
+		الحالة الإجتماعية  :أعزب 
+		المستوى الدراسي :جامعي(جامعة نواكشوط)
+		التخصص:فلسفة وعلم  إجتماع
+		المهنة :مسرحي (كتابة ،إخراج،تمثيل،حكواتي ،مهرج....)
+		المشاركات
+		محليا: فائز ثلاث مرات بجائزة المسرح  ضمن المهرجان الجهوي لمدينة انواكشوط  تمثيلا وإخراجا  سنوات 2006،2007،2008
+		فائز ثلاث مرات  بجائزة العرض المتكامل  ضمن المهرجان الوطني للمسرح المدرسي  مخرجا  سنوات  2011،2013،2015
+		فائز بجائزة أحسن نص  ضمن المهرجان الوطني للمسرح المدرسي  سنه 2014
+		فائز بجائزة  أحسن مخرج ضمن المهرجان الوطني للمسرح الموريتاني سنة2018
+		فائز بجائزة العرض المتكامل  ضمن المهرجان الوطني للمسرح الموريتاني   سنة 2019بالإضافة الى عدة اعمال تلفزيونيه من بينها 
+		وجوه من خشب 
+		أحلام مواطن 
+		الخ....
+		-عربيا
+		مهرجان خليفة اسطنبولي بتونس  2012
+		مهرجان كلميم لمسرح الجنوب  بالمغرب 2013
+		أيام الشارقة المسرحية بالإمارات 2015
+		مهرجان المسرح الصحراوي بالشارقة 2015
+		مهرجان المسرح العربي بالجزائر 2016
+		مهرجان الداخلة بالمغرب 2016
+		مهرجان المسرح الصحراوي  بالشارقة 2018
+		مهرجان المسرح العربي بالأردن 2020
+		هذا بلإضافة الى  حوالي  خمسة عشر نصا مسرحيا  مكتوبة ومعروضة للكبار  وبعض وايات الصغار  ...الخ
+			`,
+			'+22247691469',
+			'souley.adb@gmail.com'
+		),
+	]
 );
 
 commissionArray.push(TechCommittee);
@@ -66,7 +113,16 @@ const orgCommittee = commissionFactory(
 	'no-pic.png',
 	'محمد محمود (أبو مصطفى)',
 	'+22236600714',
-	'dotch1988.dg@gmail.com'
+	'dotch1988.dg@gmail.com',
+	[
+		memberFactory(
+			'ابراهيم محمذ الامين',
+			'brahim.jpeg',
+			'حاصل علي شهادة اليصانص في الفقه و اصوله ، فاعل ثقافي عامل وعضو في العديد من الروابط والاندية الثقافية .',
+			'+22226962631',
+			'Brahimalalewihemma@gmail.com'
+		),
+	]
 );
 
 commissionArray.push(orgCommittee);
@@ -83,16 +139,49 @@ commissions.forEach(commission => {
 
 function displaycommitte(committe) {
 	const commissionCard = document.querySelector('.commission-card');
+	const memberContainer = document.querySelector('.commission-members');
 	const com = committe[0];
-	if (committe.length == 0) return;
+	if (com === undefined) {
+		console.log('good bye this undefined');
+		return;
+	}
+	if (committe.length == 0 || typeof com.members === 'undefined') {
+		console.log('error here');
+		return;
+	}
+
+	memberContainer.innerHTML = ``;
+	com.members.forEach(member => {
+		const memberCard = document.createElement('div');
+		memberCard.classList.add('member-card');
+		memberCard.innerHTML = `
+		   
+				<img
+					src="images/committee/members/${member.image}"
+					alt=""
+					class="member-image"
+				/>
+				<h3 class="member-name">${member.name}</h3>
+                <p class="member-cv">
+								${member.info}
+				</p>
+				<div class="member-contact">
+						<span class="member-tel">${member.tel}</span>
+						<span class="member-email">${member.email}</span>
+			    </div> 
+	
+		`;
+
+		memberContainer.append(memberCard);
+	});
 	commissionCard.innerHTML = `
 	<h1 class="commission-title">${com.title}</h1>
 	<p class="commission-info">${com.info}</p>
 			<div>
 			<div class="commission-contact">
-				<h4 class="name">${com.commissionHead}</h4>
-				<p class="tel">${com.tel}</p>
-				<p class="email">${com.email}</p>
+				<h4 class="name"><i class="fas fa-sitemap"></i>${com.commissionHead}</h4>
+				<p class="tel"><i class="fas fa-phone-alt"></i>${com.tel}</p>
+				<p class="email"><i class="far fa-envelope"></i>${com.email}</p>
 			</div>
 			<img
 				src="images/committee/${com.image}"
@@ -101,6 +190,7 @@ function displaycommitte(committe) {
 		</div>
 	`;
 }
+
 dropDown.forEach(anchor => {
 	anchor.addEventListener('click', function () {
 		let delayTime = 60;
@@ -116,6 +206,7 @@ dropDown.forEach(anchor => {
 
 const animationHandler = () => {
 	if (aside.classList.contains('slideIn')) {
+		asideIsOpen = true;
 		aside.classList.remove('slideIn');
 		aside.classList.add('slideOut');
 		hamburgerBtn.style['justify-content'] = 'flex-start';
@@ -123,10 +214,21 @@ const animationHandler = () => {
 		aside.classList.add('slideIn');
 		aside.classList.remove('slideOut');
 		hamburgerBtn.style['justify-content'] = 'flex-end';
+		asideIsOpen = false;
 	}
 };
 
-hamburgerBtn.addEventListener('click', animationHandler);
+hamburgerBtn.addEventListener('click', () => {
+	animationHandler();
+	asideIsOpen = asideIsOpen ? false : true;
+});
+window.addEventListener('click', e => {
+	if (e.target.classList.contains('container') && asideIsOpen) {
+		animationHandler();
+		asideIsOpen = false;
+		return;
+	}
+});
 
 //Start Lightbox section
 // allImages.forEach(img => {
