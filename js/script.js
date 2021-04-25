@@ -4,6 +4,8 @@ const hamburgerBtn = document.querySelector('.icon');
 const aside = document.getElementById('aside');
 const commissions = document.querySelectorAll('.commissions .btn');
 let asideIsOpen = false;
+const toggler = document.querySelector('.toggler');
+toggler.checked = false;
 
 // Variables for lightbox
 
@@ -206,29 +208,23 @@ dropDown.forEach(anchor => {
 
 const animationHandler = () => {
 	if (aside.classList.contains('slideIn')) {
-		asideIsOpen = true;
+		asideIsOpen = false;
 		aside.classList.remove('slideIn');
 		aside.classList.add('slideOut');
 		hamburgerBtn.style['justify-content'] = 'flex-start';
+		console.log('closed');
+		toggler.checked = false;
 	} else {
 		aside.classList.add('slideIn');
 		aside.classList.remove('slideOut');
 		hamburgerBtn.style['justify-content'] = 'flex-end';
-		asideIsOpen = false;
+		asideIsOpen = true;
+		console.log('opened');
+		toggler.checked = true;
 	}
 };
 
-hamburgerBtn.addEventListener('click', () => {
-	animationHandler();
-	asideIsOpen = asideIsOpen ? false : true;
-});
-window.addEventListener('click', e => {
-	if (e.target.classList.contains('container') && asideIsOpen) {
-		animationHandler();
-		asideIsOpen = false;
-		return;
-	}
-});
+hamburgerBtn.addEventListener('click', animationHandler);
 
 //Start Lightbox section
 // allImages.forEach(img => {

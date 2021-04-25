@@ -192,11 +192,11 @@ ul li {
 }
 
 aside.slideIn {
-	animation: slideIn 1s ease-in-out forwards;
+	animation: slideIn 0.5s ease-in-out forwards;
 }
 
 aside.slideOut {
-	animation: slideOut 1s ease-in-out forwards;
+	animation: slideOut 0.5s ease-in-out forwards;
 }
 
 .header .links .icon {
@@ -206,9 +206,13 @@ aside.slideOut {
 	justify-content: flex-end;
 	cursor: pointer;
 	margin-bottom: 0.6rem;
+	position: relative;
+	z-index: 4;
+	transition: transform 0.4s;
 }
 
 .header .links .icon span {
+	position: relative;
 	background: var(--dark-color);
 	height: 2px;
 	margin-bottom: 5px;
@@ -227,6 +231,31 @@ aside.slideOut {
 .header .links .icon span:last-of-type {
 	width: 100%;
 }
+
+.toggler {
+	width: 2px;
+	height: 2px;
+	opacity: 0;
+}
+
+.links .toggler:checked + .icon > span {
+	transform: rotate(135deg);
+	width: 100%;
+}
+
+.links .toggler:checked + .icon > span:last-of-type {
+	transform: rotate(50deg);
+	top: -7px;
+}
+
+.links .toggler:checked + .icon > span:first-of-type {
+	display: none;
+}
+
+.links .toggler:checked + .icon:hover {
+	transform: scale(0.9);
+}
+
 /*End Header */
 
 /*start nav rules */
@@ -545,7 +574,7 @@ ul.sub-nav.visible {
 
 /* Start Contact Form */
 .contact-main {
-	min-height: calc(100vh - 71px);
+	/* min-height: calc(100vh - 71px); */
 	padding: 20px;
 	text-align: center;
 }
@@ -560,7 +589,7 @@ ul.sub-nav.visible {
 	overflow: hidden;
 	padding: 1rem;
 	max-width: 600px;
-	max-height: 600px;
+	min-height: 600px;
 }
 
 .contact-main .heading-row {

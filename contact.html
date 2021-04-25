@@ -23,6 +23,24 @@
 
 		<!-- Main Script -->
 		<script src="js/script.js" defer></script>
+		<!-- Leaflet's links -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			crossorigin=""
+		/>
+		<script
+			src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+			crossorigin=""
+		></script>
+		<style>
+			#mapid {
+				height: 180px;
+				z-index: 1;
+			}
+		</style>
 	</head>
 	<body id="contact">
 		<header class="header" id="contact-header">
@@ -30,6 +48,7 @@
 				<img src="images/logo.png" alt="" class="logo" />
 				<img src="images/text.png" alt="" class="logo-text" />
 				<div class="links">
+					<input type="checkbox" class="toggler" disabled />
 					<div class="icon">
 						<span></span>
 						<span></span>
@@ -82,9 +101,16 @@
 							>hello@vreidy.com.au</a
 						>
 					</p>
+					<div id="mapid"></div>
 					<form action="" class="contact-form">
 						<div class="form-group">
-							<input type="text" name="name" id="name" placeholder="name" />
+							<input
+								type="text"
+								name="name"
+								id="name"
+								placeholder="name"
+								required
+							/>
 						</div>
 						<div class="form-group">
 							<input
@@ -102,6 +128,7 @@
 								id="message"
 								style="resize: none"
 								placeholder="message"
+								required
 							></textarea>
 						</div>
 						<div class="form-group">
@@ -122,5 +149,26 @@
 				<p>Copyright &copy; 2021 - vreidy Created by Hamoud Hmd</p>
 			</div>
 		</footer>
+
+		<script>
+			const mymap = L.map('mapid').setView([18.105441, -15.968101], 13);
+
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution:
+					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			}).addTo(mymap);
+
+			L.marker([18.105441, -15.968101])
+				.addTo(mymap)
+				.bindPopup('المقر المؤقت لمهرجان <br>موسيقى الرعاة الدولي')
+				.openPopup();
+
+			const circle = L.circle([18.105441, -15.968101], {
+				color: '#5e3911',
+				fillColor: '#e1b058',
+				fillOpacity: 0.5,
+				radius: 100,
+			}).addTo(mymap);
+		</script>
 	</body>
 </html>
