@@ -796,6 +796,7 @@ ul.sub-nav.visible {
 #map-section > p {
 	font-size: 1.3rem;
 	text-align: left;
+	padding-left: 2rem;
 }
 
 #map-section > p a {
