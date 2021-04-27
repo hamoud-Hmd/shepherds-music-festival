@@ -144,7 +144,6 @@ function displaycommitte(committe) {
 	const memberContainer = document.querySelector('.commission-members');
 	const com = committe[0];
 	if (com === undefined) {
-		console.log('good bye this undefined');
 		return;
 	}
 	if (committe.length == 0 || typeof com.members === 'undefined') {
@@ -242,4 +241,4 @@ hamburgerBtn.addEventListener('click', animationHandler);
 // 	modalImage.classList.remove('open');
 // 	fullImage.classList.remove('open');
 // });
-// End Lightbox secotion
+// End Lightbox section

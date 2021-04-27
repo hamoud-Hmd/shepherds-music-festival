@@ -410,14 +410,14 @@ ul.sub-nav.visible {
 
 .commission-card {
 	max-width: 400px;
-	border: 2px solid var(--primary-color);
+	border: 1px solid var(--primary-color);
 	border-radius: 10px;
-	padding: 1rem;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 0 1rem;
 }
 
 .commission-card .commission-info {
@@ -487,8 +487,9 @@ ul.sub-nav.visible {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	grid-gap: 1.4rem;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .commission-members .member-card {
@@ -501,13 +502,18 @@ ul.sub-nav.visible {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 1rem;
+	padding: 0 0 1rem;
+	overflow: hidden;
+	max-height: 450px;
 }
 .commission-members .member-card .member-contact {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	opacity: 0.7;
+}
+.commission-members .member-card img {
+	margin-top: 1rem;
 }
 
 .commission-members .member-card .member-name {
@@ -516,11 +522,20 @@ ul.sub-nav.visible {
 }
 
 .commission-members .member-card .member-cv {
-	max-height: 150px;
+	max-height: 200px;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	overflow-y: auto;
-	background-color: var(--light-color);
+	padding: 0 1rem;
 }
-
+.member-card .member-status {
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+	align-self: flex-start;
+	width: 100%;
+	margin-top: 0;
+	padding: 1rem;
+}
 .commission-members .member-card .member-cv::-webkit-scrollbar {
 	width: 2px;
 }
@@ -581,7 +596,7 @@ ul.sub-nav.visible {
 .contact-main .container {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .contact-main .contact-row {
@@ -589,7 +604,7 @@ ul.sub-nav.visible {
 	overflow: hidden;
 	padding: 1rem;
 	max-width: 600px;
-	min-height: 600px;
+	min-height: 450px;
 }
 
 .contact-main .heading-row {
@@ -598,6 +613,9 @@ ul.sub-nav.visible {
 	color: var(--light-color);
 	margin-right: 3rem;
 	max-width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .contact-main .heading-row::before {
@@ -625,7 +643,7 @@ ul.sub-nav.visible {
 
 .contact-row > p {
 	text-align: left;
-	font-size: 1.4rem;
+	font-size: 2.4rem;
 }
 
 @media (max-width: 767px) {
@@ -638,6 +656,28 @@ ul.sub-nav.visible {
 
 	.heading-row h1 {
 		font-size: 3rem;
+	}
+
+	.contact-main .container {
+		align-items: center;
+	}
+
+	.contact-main .container > * {
+		width: 100%;
+	}
+
+	#map-section {
+		flex-direction: column-reverse;
+	}
+
+	#map-section > * {
+		width: 100%;
+	}
+
+	#map-section p {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 	}
 }
 .form-group {
@@ -745,6 +785,43 @@ ul.sub-nav.visible {
 
 #info-main .container > div ul li {
 	padding: 0;
+}
+
+#map-section {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#map-section > p {
+	font-size: 1.3rem;
+	text-align: left;
+}
+
+#map-section > p a {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	position: relative;
+}
+
+#map-section > p a::after {
+	content: '';
+	height: 2px;
+	width: 60%;
+	background-color: var(--primary-color);
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	opacity: 0.4;
+}
+
+#map-section > p a i {
+	color: var(--primary-color);
+	transition: all 0.4s;
+}
+#map-section > p a i:hover {
+	color: var(--light-color);
 }
 
 /* End Info */
