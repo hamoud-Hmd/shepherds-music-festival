@@ -45,8 +45,12 @@ ul li {
 	max-width: 1100px;
 	overflow: hidden;
 }
+.rtl {
+	direction: rtl;
+}
 
-.line {
+.line,
+.line-secondary {
 	height: 5px;
 	border-radius: 10px;
 	width: 35%;
@@ -55,7 +59,9 @@ ul li {
 	opacity: 0.4;
 	margin-top: 0.4rem;
 }
-
+.line-secondary {
+	background-color: var(--secondary-color);
+}
 .lead {
 	font-size: 3rem;
 	margin-top: 1rem;
@@ -65,6 +71,11 @@ ul li {
 	max-width: max-content;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.center {
+	margin: auto;
+	text-align: center;
 }
 .btn {
 	all: unset;
@@ -136,7 +147,7 @@ ul li {
 	height: 71px;
 	background: var(--light-color);
 	box-shadow: 0 -3px 4px 4px rgba(83, 83, 83, 0.473);
-	z-index: 4;
+	z-index: 44;
 }
 
 .header .container {
@@ -947,15 +958,68 @@ ul.sub-nav.visible {
 /* start evele page */
 #main-tnt {
 	/* Nothing here */
-	height: calc(100vh - 71px);
+	height: 100vh;
+	position: relative;
+	background: #151515;
 }
 
-#main-tnt .pics-from-tnt {
-	padding: 2rem;
+.hero {
+	position: absolute;
+	color: var(--light-color);
+	font-size: 5rem;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -30%);
+	z-index: 18;
 }
+#main-tnt > img {
+	width: 100%;
+	position: absolute;
+}
+
+.tnt-section {
+	width: 100%;
+	background-color: #151515;
+	position: relative;
+}
+
+.tnt-section .container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem;
+	min-height: 100vh;
+}
+
+.tnt-section .container img {
+	width: 100%;
+}
+.tnt-section .container .content {
+	color: var(--light-color);
+	line-height: 1.8;
+}
+
+.shadow {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	height: 300px;
+	width: 100%;
+	background: linear-gradient(to top, #151515, transparent);
+	z-index: 20;
+}
+
+.opacity {
+	opacity: 0;
+}
+/* #main-tnt .pics-from-tnt {
+	padding: 2rem;
+} */
 
 /* Start Slide show */
-#main-tnt .pics-from-tnt .slide-show {
+/* #main-tnt .pics-from-tnt .slide-show {
 	width: 70%;
 	height: 300px;
 	padding: 0.4rem;
@@ -968,7 +1032,7 @@ ul.sub-nav.visible {
 	border-radius: 10px;
 	transition: all 0.2s ease-in;
 	overflow: hidden;
-}
+} */
 
 /* End Slid show */
 

@@ -63,17 +63,72 @@
 		</header>
 		<!-- Main  -->
 		<main id="main-tnt">
-			<section class="pics-from-tnt">
-				<div class="container">
+			<h1 class="hero" data-speed="0.1">.أفل</h1>
+			<img src="images/sky.png" class="sky translate" alt="" data-speed="0.5" />
+			<img
+				src="images/field.png"
+				class="field translate"
+				alt=""
+				data-speed="0.4"
+			/>
+			<img
+				src="images/smallMountain.png"
+				class="smallMountain translate"
+				alt=""
+				data-speed="-0.2"
+			/>
+			<img
+				src="images/bigMountain.png"
+				class="bigMountain translate"
+				alt=""
+				data-speed="-0.2"
+			/>
+		</main>
+		<section class="tnt-section">
+			<div class="shadow"></div>
+			<div class="container">
+				<div class="content opacity">
 					<h2 class="lead">
-						مناظر من الطينطان
+						مقاطعة الطينطان
 						<div class="line"></div>
 					</h2>
-					<div class="slide-show"></div>
+					<p class="rtl">
+						تقع مقاطعة الطينطان في ولاية الحوض الغربي، وتبعد عاصمتها مدينة
+						الطينطان نحو ٧٤٠ كم إلى الشرق من العاصمة نواكشوط وعلى مقربة من
+						الحدود المالية. تعرضت المدينة في عام 2007 لفيضانات جارفة ألحقت بها
+						أضراراً جسيمة. حينذاك قررت السلطات ترحيل السكان إلى مكان مرتفع إلى
+						الناحية الجنوبية من المدينة القديمة ليتم تأسيس مدينة جديدة.  توجد
+						ضمن مقتطعة الطينطان عدة بلديات منها
+					</p>
 				</div>
-			</section>
-		</main>
+				<div class="imgContainer opacity">
+					<img src="images/full/dusk.jpg" alt="" />
+				</div>
+			</div>
 
+			<div class="container">
+				<div class="imgContainer">
+					<img src="images/full/image2.jpg" alt="" />
+				</div>
+				<div class="content">
+					<h2 class="center">
+						الإمكانات السياحية والتنموية
+						<div class="line-secondary"></div>
+					</h2>
+					<p class="rtl">
+						شيّدت المدينة الجديدة على مرتفع رملي يتمتع بهواء نقي, وهي محاطة
+						بمنخفض من الوديان الخضراء من جهة الشمال وسلاسل جبلية من الجهات
+						الأخرى. هذا الموقع يمنح المدينة خاصة والمقاطعة عامة امكانات سياحية
+						كبيرة بسبب جمال التضاريس وخاصة السلاسل الجبلية والمنخفضات الخضراء.
+						كما ان للمنطقة الاوسع المعروفة بافلَّ تاريخا ثقافيا غنيا بوصفها جزء
+						من الشرق الموريتاني الذي يرى المؤرخون انه مهدُ الفن الموسيقي
+						والغنائي الموريتاني وقامت فيه محاضر مشهورة وعديدة لتدريس القرآن
+						الكريم وعلوم الدين وانتجت منطقة أفَلّ عددا كبيرا من شعراء الدارجة
+						والفصحى وأسماء بارزة في مجالات ثقافية وعلمية أخرى.
+					</p>
+				</div>
+			</div>
+		</section>
 		<!-- Footer -->
 		<footer class="footer bg-primary">
 			<div class="container">
@@ -88,32 +143,46 @@
 		</footer>
 
 		<script>
-			//Slide show Variables
-			const slideImage = document.querySelector('.slide-show');
-			const images = [];
-			let i = 0;
-			let time = 3000;
-			//End Slide show variables
+			const translate = document.querySelectorAll('.translate');
+			const big_title = document.querySelector('.hero');
+			const header = document.getElementById('main-tnt');
+			const shadow = document.querySelector('.shadow');
+			const content = document.querySelectorAll('.content');
+			const section = document.querySelector('.tnt-section');
+			const imageContainer = document.querySelectorAll('.imgContainer');
+			const opacity = document.querySelectorAll('.opacity');
 
-			images.push('images/full/image1.jpg');
-			images.push('images/full/image2.jpg');
-			images.push('images/full/image3.jpg');
-			images.push('images/full/image4.jpg');
-			images.push('images/full/image5.jpg');
+			let header_height = header.offsetHeight;
+			let section_height = section.offsetHeight;
 
-			function changeImage() {
-				slideImage.style.backgroundImage = `url(${images[i]})`;
+			window.addEventListener('scroll', () => {
+				let scroll = window.pageYOffset;
+				let sectionY = section.getBoundingClientRect();
 
-				if (i < images.length - 1) {
-					i++;
-				} else {
-					i = 0;
-				}
+				translate.forEach(el => {
+					let speed = el.dataset.speed;
+					el.style.transform = `translateY(${scroll * speed}px)`;
+				});
 
-				setTimeout('changeImage()', time);
-			}
+				big_title.style.opacity = -scroll / (header_height / 2) + 1;
+				shadow.style.height = `${scroll * 0.5 + 300}px`;
 
-			window.onload = changeImage;
+				opacity.forEach(element => {
+					element.style.opacity = scroll / (sectionY.top + section_height / 2);
+				});
+
+				content.forEach(el => {
+					el.style.transform = `translateY(${
+						(scroll / (section_height + sectionY.top)) * 50 - 50
+					}px`;
+				});
+
+				imageContainer.forEach(el => {
+					el.style.transform = `translateY(${
+						scroll / (section_height + sectionY.top) - 50 + 50
+					}px`;
+				});
+			});
 		</script>
 	</body>
 </html>
