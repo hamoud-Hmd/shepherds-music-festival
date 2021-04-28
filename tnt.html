@@ -147,9 +147,7 @@
 			const big_title = document.querySelector('.hero');
 			const header = document.getElementById('main-tnt');
 			const shadow = document.querySelector('.shadow');
-			const content = document.querySelectorAll('.content');
 			const section = document.querySelector('.tnt-section');
-			const imageContainer = document.querySelectorAll('.imgContainer');
 			const opacity = document.querySelectorAll('.opacity');
 
 			let header_height = header.offsetHeight;
@@ -169,18 +167,6 @@
 
 				opacity.forEach(element => {
 					element.style.opacity = scroll / (sectionY.top + section_height / 2);
-				});
-
-				content.forEach(el => {
-					el.style.transform = `translateY(${
-						(scroll / (section_height + sectionY.top)) * 50 - 50
-					}px`;
-				});
-
-				imageContainer.forEach(el => {
-					el.style.transform = `translateY(${
-						scroll / (section_height + sectionY.top) - 50 + 50
-					}px`;
 				});
 			});
 		</script>

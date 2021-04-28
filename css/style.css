@@ -541,10 +541,12 @@ ul.sub-nav.visible {
 }
 .member-card .member-status {
 	background-color: var(--primary-color);
-	color: var(--secondary-color);
+	color: var(--light-color);
 	align-self: flex-start;
 	width: 100%;
 	margin-top: 0;
+	font-weight: 300;
+	font-size: 1.4rem;
 	padding: 1rem;
 }
 .commission-members .member-card .member-cv::-webkit-scrollbar {
