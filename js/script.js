@@ -35,6 +35,7 @@ const memberFactory = (name, image, info, tel, email) => {
 
 // committe infos
 
+// Head committee
 const headCommitte = commissionFactory(
 	'اللجنة العليا',
 	'تتكون لجنة الإعلام للمهرجان من وحدات متخصصة تعمل كل منها وفق استراتيجية ورؤية شاملة لللجنة  وبقدر من المرونة بما يحقق لها قدرة على الحركة للوصول للخبر والمعلومة في الوقت المناسب وبالدقة والمصداقية اللازمة .',
@@ -44,7 +45,21 @@ const headCommitte = commissionFactory(
 	'brahimeman@gmail.com'
 );
 commissionArray.push(headCommitte);
+// End Head committee
 
+//Ambassadors Committee
+const ambCommittee = commissionFactory(
+	'لجنة السفراء',
+	`سفراء المهرجان 
+عبارة عن مجموعة واسعة من الاصدقاء المثقفين المقيمين في الخارج اساسا والذين يشاركوننا في الايمان والاعجاب بالفكرة وقد عبروا عن استعدادهم لتمثيل المهرجان والتعريف به في مختلف دول العالم. وسيقومون بمساعدتنا في التواصل مع المشاركين والمساهمين والداعمين من البلدان التي يقيمون فيها.
+بوجودهم معنا وبدورهم القيّم نتوخى الوصول باسرع وقت ممكن الى العالمية من اوسع أبوابها.`,
+	'no-pic.jpeg',
+	'Brahim Eman',
+	'+22227930683',
+	'brahimeman@gmail.com'
+);
+commissionArray.push(ambCommittee);
+//End Ambassadors Committee
 // Media Committe
 const mediaCommitte = commissionFactory(
 	'اللجنة الإعلامية',
@@ -205,6 +220,16 @@ const orgCommittee = commissionFactory(
 			'+22226962631',
 			'Brahimalalewihemma@gmail.com'
 		),
+		memberFactory(
+			'فاطمة محمد أنحوي',
+			'fatimetou.jpeg',
+			`الإسم    فاطمة محمد أنحوي
+             العمر    22
+            السكن  الطينطان
+            المستوى الدراسي 7O  `,
+			'+22227028890',
+			'Unavailable'
+		),
 	]
 );
 
@@ -220,7 +245,15 @@ const forRelCommittee = commissionFactory(
 	'محمدو الصلاحي',
 	'+22237003586',
 	'mouhamedouSalahi@gmail.com',
-	[]
+	[
+		memberFactory(
+			'مكفوله آقاط',
+			'mekfoule.jpg',
+			`مكفوله آقاط ،أستاذة تاريخ ،وزيرة سابقة 'مستشارة رئيس الوزراء، كاتبة ومحاضرة`,
+			'+2224444474',
+			'Agatt.mek@gmail.com'
+		),
+	]
 );
 
 commissionArray.push(forRelCommittee);
@@ -238,7 +271,17 @@ const finCommittee = commissionFactory(
 	'محمد الأمين ابَّجدُّه',
 	'+(222) 22 36 3063',
 	'mlemine011@gmail.com',
-	[]
+	[
+		memberFactory(
+			'شيخن خَيِّ',
+			'cheikhneKhayi.jpg',
+			`شَيخن خَيِّ من مواليد 1999،
+طالب في كلية العلوم والتقنيات/جامعة أنواكشوط العصرية، مهتم باالإعلام، والأدب؛ والموسيقى،
+ شارك في عدة دوراتِ تَدْريب في مجال الصحافة والإعلام.!`,
+			'+22222909592',
+			'cheikhnekhayi5@gmail.com'
+		),
+	]
 );
 
 commissionArray.push(finCommittee);
@@ -256,7 +299,148 @@ function displaycommitte(committe) {
 	const commissionCard = document.querySelector('.commission-card');
 	const memberContainer = document.querySelector('.commission-members');
 	const com = committe[0];
+	if (com === undefined) {
+		return;
+	}
+	// <div class="member-card">
+	// 						<h2 class="member-status">عضو اللجنة</h2>
+	// 						<img
+	// 							src="images/committee/members/deddahAb.jpeg"
+	// 							alt=""
+	// 							class="member-image"
+	// 						/>
+	// 						<h3 class="member-name">حميد ون خرشف</h3>
+	// 						<p class="member-cv">
+	// 						</p>
+	// 						<div class="member-contact">
+	// 							<span class="member-tel"></span>
+	// 							<span class="member-email"></span>
+	// 						</div>
+	// 					</div>
+	if (com.title === 'لجنة السفراء') {
+		memberContainer.innerHTML = `
+		<div class="member-card">
+								<h2 class="member-status">عضو اللجنة</h2>
+								<img
+									src="images/committee/members/deddahAb.jpeg"
+									alt=""
+									class="member-image"
+								/>
+								<h3 class="member-name">دداه عبد الله</h3>
+								<p class="member-cv">
+								دداه عبد الله صحفي ومنتج أفلام كبير، عمل مراسلا ميدانيا مع عدة محطات تلفزية من بينها "قناة العربية" وال "بي بي سي عربي " و "الحرة" و "الجزيرة" و "بين سبورت" حيث غطى بعض أهم  الاحداث والقضايا من دول آسيا واوروبا وافريقيا والامريكتين قبل ان يتفرغ مؤقتا لتأسيس دار “ARAC” لانتاج الأفلام الوثائقية والبرامج التلفزيونية.
+وتمتد تجربته في الاعلام لاكثر من ثلاثين عاما.
+مقيم في البرازيل.</p>
+						       <div class="member-contact">
+									<span class="member-tel">+5522992869554</span>
+									<span class="member-email">aracprod@gmail.com</span>
+								</div>
+							</div>
 
+
+								<div class="member-card">
+							<h2 class="member-status">عضو اللجنة</h2>
+							<img
+								src="images/committee/members/brahimAdel.jpeg"
+								alt=""
+								class="member-image"
+							/>
+							<h3 class="member-name">إبراهيم العادل</h3>
+							<p class="member-cv">
+							إبراهيم العادل 
+درس الأدب الإسباني في جامعة انواكشوط قبل أن يدرس الإعلام في جامعتي الأناضول بتركيا وسانتياغو دي كومبوستيلا بإسبانيا ثم واصل  دراساته العليا في جامعة أنقرة في علوم التواصل يتحدث اللغة التركية والإسبانية والإنجليزية والفرنسية إضافة إلى لغته الأم العربية يعمل حاليا مقدما في قناة تي آر تي عربي كما عمل مراسلا ومنتجا في السابق
+							</p>
+							<div class="member-contact">
+								<span class="member-tel">+905511084432</span>
+								<span class="member-email">brahim.adel@hotmail.fr</span>
+							</div>
+						</div>
+
+
+							<div class="member-card">
+							<h2 class="member-status">عضو اللجنة</h2>
+							<img
+								src="images/committee/members/abMeymin.jpeg"
+								alt=""
+								class="member-image"
+							/>
+							<h3 class="member-name">عبد الله ممين</h3>
+							<p class="member-cv">
+							محمد عبد الله ممين  صحفي 
+ومراسل له تجربة عمرها 35 عاما..  يعمل الآن مراسلا للتلفزيون العربي 
+كما عمل  فى غرف الاخبار ومراسلا ميدانيا لعدة محطات تلفزية واذاعية اخرى من بينها " العربية" وال "mbc" و "العالم “ومدي 1" 
+فضلا عن الاذاعة والتلفزيون الموريتانييتين..
+وله تجربة مع الصحافة المكتوبة بدأت مع جريدة الشعب المورربتانبة   
+وانتهت مؤخرا بصحفية اند بندنت عربية   مرورا بصحف الشرق  الاوسط والمسلمون. ومجلتي  المجلة وسيدتي ..  
+غطى الحرب الاهلية في ساحل العاج واحداث العراق  وافغانستان عامي ٢٠٠٣و ٢٠٠٤  ..
+والثورات العربية في كل من ترنس وليبيا والجزائر والسودان..
+كما غطى احداث كبيرة اخرى في مختلف درل آسيا واوروبا وافريقيا وامريكا الاتينية ..
+وحاور عددا من قادة العالم في برنامح مع صناع القرار الذي كان يقدمه في قناة العالم الايرانية..
+							</p>
+							<div class="member-contact">
+								<span class="member-tel">unknown</span>
+								<span class="member-email">Mamemine@gmail.com</span>
+							</div>
+						</div>
+
+
+							<div class="member-card">
+							<h2 class="member-status">عضو اللجنة</h2>
+							<img
+								src="images/committee/members/esalmeCheyn.jpeg"
+								alt=""
+								class="member-image"
+							/>
+							<h3 class="member-name">السالمه أعمر شين</h3>
+							<p class="member-cv">
+							السالمه أعمر شين، نائب بالجمعية الوطنية تقيم في العاصمة نواكشوط
+۔تحمل شهادة متريز في القانون العام(العلاقات الدولية )۔من جامعة نواكشوط ..
+تزامن تخرجها  عام ١٩٩١ مع بداية المسلسل الديموقراطي للبلد فدخلت المعترك السياسي بشكل مبكر ۔
+توجت مسيرتها السياسية المهنية بالمشاركة في الانتخابات البرلمانية ٢٠١٣
+ليعاد انتخابها للمرة الثانية عام ٢٠١٨..
+مثلت موريتانيا في عدة محافل عالمية بوصفها مندوبة دائمة لدى اتحاد البرلمانات الدولية.
+ومكّنها عملها أمينة عامة لشبكة البرلمانيات الموريتانيات من زياة مخلف مناطق الوطن ،مما مكنها من الاطلاع  على شؤون وشجون المواطن في كل مكان.،
+فتوطدت علاقتها مع الطبقات الهشة لتحاز أكثر إلى العمل الانساني..بعد أن اسندت  لها مهمة الشؤون الاجتماعية فى بلدية تفرغ زينه..
+لتقترب اكثر من المواطن ..
+ناضلت في المستشفيات من اجل توفير الدواء لمرضي الفشل الكليوي وغيرهم من اصحاب الامراض المزمنة  ..
+عملها لصالح الفقراء والمعدمين..
+اكسبها هواية العمل الخيري والانحياز للانسان.
+اللغات : العربية والفرنسية..
+							</p>
+							<div class="member-contact">
+								<span class="member-tel">+222 20256847</span>
+								<span class="member-email">v21166@yahoo.com</span>
+							</div>
+						</div>
+
+							<div class="member-card">
+							<h2 class="member-status">عضو اللجنة</h2>
+							<img
+								src="images/committee/members/ousmanAgha.jpeg"
+								alt=""
+								class="member-image"
+							/>
+							<h3 class="member-name">عثمان آغ محمد عثمان</h3>
+							<p class="member-cv">
+							عثمان آغ محمد عثمان 
+منتج أخبار في منطقة الساحل بقناة الجزيرة الانجليزية سابقا
+مقيم في السويد
+							</p>
+							<div class="member-contact">
+								<span class="member-tel">unknown</span>
+								<span class="member-email">ousmanag@gmail.com</span>
+							</div>
+						</div>
+		`;
+
+		commissionCard.innerHTML = `
+		<h1 class="commission-title">لجنة السفراء</h1>
+	<p class="commission-info">سفراء المهرجان 
+عبارة عن مجموعة واسعة من الاصدقاء المثقفين المقيمين في الخارج اساسا والذين يشاركوننا في الايمان والاعجاب بالفكرة وقد عبروا عن استعدادهم لتمثيل المهرجان والتعريف به في مختلف دول العالم. وسيقومون بمساعدتنا في التواصل مع المشاركين والمساهمين والداعمين من البلدان التي يقيمون فيها.
+بوجودهم معنا وبدورهم القيّم نتوخى الوصول باسرع وقت ممكن الى العالمية من اوسع أبوابها.</p>
+		`;
+		return;
+	}
 	if (com.title === 'اللجنة العليا') {
 		memberContainer.innerHTML = `
 		<div class="member-card">
@@ -491,9 +675,7 @@ function displaycommitte(committe) {
 		`;
 		return;
 	}
-	if (com === undefined) {
-		return;
-	}
+
 	if (committe.length == 0 || typeof com.members === 'undefined') {
 		console.log('error here');
 		return;
