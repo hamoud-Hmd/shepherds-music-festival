@@ -968,9 +968,10 @@ ul.sub-nav.visible {
 	height: 100vh;
 	position: relative;
 	background: #151515;
+	overflow: hidden;
 }
 
-.hero {
+#main-tnt .hero {
 	position: absolute;
 	color: var(--light-color);
 	font-size: 5rem;
@@ -1002,7 +1003,6 @@ ul.sub-nav.visible {
 
 .tnt-section .container img {
 	width: 100%;
-	object-fit: cover;
 }
 .tnt-section .container .content {
 	color: var(--light-color);
@@ -1021,6 +1021,31 @@ ul.sub-nav.visible {
 
 .opacity {
 	opacity: 0;
+}
+
+@media (max-width: 768px) {
+	.bigMountain,
+	.smallMountain,
+	.field,
+	.sky {
+		display: none;
+	}
+
+	.tnt-section .container {
+		grid-template-columns: 1fr;
+	}
+
+	#main-tnt .hero {
+		font-size: 5rem;
+		top: 20%;
+		left: 50%;
+		transform: translate(-50%, -20%);
+		z-index: 18;
+	}
+
+	#main-tnt {
+		background: url(../images/full/landscape1.jpg) center center / cover;
+	}
 }
 /* #main-tnt .pics-from-tnt {
 	padding: 2rem;
