@@ -421,9 +421,9 @@ ul.sub-nav.visible {
 
 .commission-card {
 	max-width: 400px;
-	border: 1px solid var(--primary-color);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
-	margin: 0 auto;
+	margin: 0 auto 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -508,10 +508,11 @@ ul.sub-nav.visible {
 	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.4);
 	background-color: var(--light-color);
 	border-radius: 10px;
+	min-height: 450px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	text-align: center;
 	padding: 0 0 1rem;
 	overflow: hidden;
@@ -530,6 +531,10 @@ ul.sub-nav.visible {
 .commission-members .member-card .member-name {
 	font-size: 1.4rem;
 	text-transform: capitalize;
+}
+
+.commission-members .member-card .member-tel {
+	direction: ltr;
 }
 
 .commission-members .member-card .member-cv {
@@ -997,6 +1002,7 @@ ul.sub-nav.visible {
 
 .tnt-section .container img {
 	width: 100%;
+	object-fit: cover;
 }
 .tnt-section .container .content {
 	color: var(--light-color);

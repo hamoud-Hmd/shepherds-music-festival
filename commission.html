@@ -79,12 +79,10 @@
 						<a class="btn">لجنة التنظيم</a>
 						<a class="btn">مكتب الطينطان</a>
 					</div>
-					<h1 class="lead">
-						اللجنة العليا
-						<div class="line"></div>
-					</h1>
+				
 					<div class="commissions-wrapper">
-						<div class="commission-members">
+			
+						<div class="commission-members rtl">
 							<div class="member-card">
 								<h2 class="member-status">الرئيس الشرفي</h2>
 								<img
@@ -271,7 +269,7 @@
                             </div>
 
                            <div class="member-card">
-							<h2 class="member-status">رئيس مكتب الطينطان</h2>
+							<h2 class="member-status">منسق الفريق الميداني في الطينطان</h2>
                                 <img
                                     src="images/committee/members/nouheIissa.jpg"
                                     alt=""
@@ -313,8 +311,12 @@
 
 					
 								<!--Th End of this container  -->
+						
 							</div>
-							<div class="commission-card"></div>
+							<div class="commission-card"><h1 class="commission-title">اللجنة العليا</h1>
+	<p class="commission-info">- اللجنة العليا لمهرجان موسيقى الرعاة الدولي 
+هي اللجنة المكلفة بالإدارة التنفيذية للمهرجان وتتألف من رئيس و مدير تنفيذي ومدير مساعدة ورؤساء اللجان المختصة وتهتم بإدارة المهرجان ووضع سياساته العامة بالنظر في المقترحات المقدمة من طرف اللجان الأخرى  وإجازتها، ووضع خطط العمل الميداني حسب الزمن، إجازة واعتماد الدراسة الفنية والمالية.</p>
+		`;</div>
 						</div>
 					</div>
 				</div>
@@ -332,5 +334,17 @@
 				<p>Copyright &copy; 2021 - vreidy Created by Hamoud Hmd</p>
 			</div>
 		</footer>
+		<script type="text/javascript" src="js/vanilla-tilt.js"></script>
+		<script type="text/javascript">
+			// VanillaTilt.init(document.querySelectorAll(".member-card"), {
+			// 	max: 25,
+			// 	speed: 400,
+			// 	glare: true,
+			// 	"max-glare": 0.2
+			// });
+			
+			//It also supports NodeList
+			VanillaTilt.init(document.querySelectorAll(".btn"));
+			</script>
 	</body>
 </html>
