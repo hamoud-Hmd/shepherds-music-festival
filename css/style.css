@@ -5,6 +5,7 @@
 	--light-color: #fff;
 	--dark-color: #000;
 	--max-width: 1100px;
+	--header-height: 71px;
 }
 /* End Variables */
 
@@ -18,6 +19,7 @@
 body {
 	font-family: 'Tajawal', sans-serif;
 	background-color: var(--secondary-color);
+	position: relative;
 }
 .anchor {
 	cursor: pointer;
@@ -73,6 +75,9 @@ ul li {
 	margin-left: auto;
 }
 
+.mr-1 {
+	margin-right: 5px;
+}
 .center {
 	margin: auto;
 	text-align: center;
@@ -144,7 +149,7 @@ ul li {
 	position: sticky;
 	top: 0;
 	left: 0;
-	height: 71px;
+	height: var(--header-height);
 	background: var(--light-color);
 	box-shadow: 0 -3px 4px 4px rgba(83, 83, 83, 0.473);
 	z-index: 44;
@@ -203,11 +208,11 @@ ul li {
 }
 
 aside.slideIn {
-	animation: slideIn 0.5s ease-in-out forwards;
+	animation: slideIn 0.3s ease-in-out forwards;
 }
 
 aside.slideOut {
-	animation: slideOut 0.5s ease-in-out forwards;
+	animation: slideOut 0.3s ease-in-out forwards;
 }
 
 .header .links .icon {
@@ -345,7 +350,7 @@ ul.sub-nav.visible {
 
 /*Start Section  intro*/
 #main-home {
-	min-height: calc(100vh - 71px);
+	min-height: calc(100vh - var(--header-height));
 	width: 100%;
 	background-image: url('../images/home-bg.jpg');
 	background-size: cover;
@@ -355,7 +360,7 @@ ul.sub-nav.visible {
 }
 
 .section-intro {
-	height: calc(100vh - 71px);
+	height: calc(100vh - var(--header-height));
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -394,14 +399,63 @@ ul.sub-nav.visible {
 /* Start Commission Section */
 .section-commission {
 	padding: 2rem;
-	min-height: calc(100vh - 71px);
+	min-height: calc(100vh - var(--header-height));
+}
+.commission-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 99;
+	display: flex;
+	backdrop-filter: blur(5px);
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	transform: scale(0);
+	opacity: 0;
+	transition: opacity 0.5s, transform 0.3s;
+}
+
+.commission-modal.visible {
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
 }
 .commissions-wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: start;
-	align-items: flex-start;
-	gap: 2rem;
+	position: relative;
+	width: 70%;
+	height: 80%;
+	overflow: auto;
+	padding: 2rem;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: var(--light-color);
+}
+
+.modal-close i {
+	font-size: 3rem;
+	transition: all 0.5s;
+}
+
+.modal-close i:hover {
+	transform: scale(0.9);
+	cursor: pointer;
+	color: var(--secondary-color);
+}
+@media (max-width: 768px) {
+	.commissions-wrapper {
+		width: 100%;
+		height: 70%;
+	}
 }
 
 .commissions {
@@ -422,6 +476,7 @@ ul.sub-nav.visible {
 .commission-card {
 	max-width: 400px;
 	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: var(--light-color);
 	border-radius: 10px;
 	margin: 0 auto 1em;
 	display: flex;
@@ -533,12 +588,17 @@ ul.sub-nav.visible {
 	text-transform: capitalize;
 }
 
-.commission-members .member-card .member-tel {
+.commission-members .member-card .member-tel,
+.ltr {
 	direction: ltr;
+}
+.commission-members .member-card .member-tel:hover,
+.commission-members .member-card .member-email:hover {
+	color: blue;
 }
 
 .commission-members .member-card .member-cv {
-	max-height: 200px;
+	height: clamp(100px, 300px, 500px);
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	overflow-y: auto;
@@ -555,7 +615,7 @@ ul.sub-nav.visible {
 	padding: 1rem;
 }
 .commission-members .member-card .member-cv::-webkit-scrollbar {
-	width: 2px;
+	width: 1px;
 }
 /* End Commission Section */
 
@@ -607,7 +667,7 @@ ul.sub-nav.visible {
 
 /* Start Contact Form */
 .contact-main {
-	/* min-height: calc(100vh - 71px); */
+	/* min-height: calc(100vh -  var(--header-height)); */
 	padding: 20px;
 	text-align: center;
 }
@@ -1047,26 +1107,58 @@ ul.sub-nav.visible {
 		background: url(../images/full/landscape1.jpg) center center / cover;
 	}
 }
-/* #main-tnt .pics-from-tnt {
+
+/* Contest Section */
+#contest-section {
+	min-height: calc(100vh - var(--header-height));
 	padding: 2rem;
-} */
+	overflow-x: auto;
+}
 
-/* Start Slide show */
-/* #main-tnt .pics-from-tnt .slide-show {
-	width: 70%;
-	height: 300px;
-	padding: 0.4rem;
-	background-image: url(../images/home-bg.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	margin: auto;
-	border: 5px solid;
-	border-radius: 10px;
-	transition: all 0.2s ease-in;
-	overflow: hidden;
-} */
+#contest-section .contest-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-/* End Slid show */
+	gap: 3rem;
+}
+#contest-section .contest-wrapper .contest-card {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	height: 500px;
+	width: 700px;
+	border-radius: 2rem;
+	background-color: white;
+}
 
-/* End evele page */
+#contest-section .contest-wrapper .contest-card .contest-img {
+	position: relative;
+	background-color: yellowgreen;
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+	height: 40%;
+	width: 100%;
+}
+
+#contest-section .contest-wrapper .contest-card .contest-img img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	z-index: 10;
+}
+
+#contest-section .contest-wrapper .contest-card .contest-description {
+	padding: 1rem;
+}
+
+#contest-section .contest-wrapper .contest-card .contest-name {
+	margin-top: 1rem;
+}
+
+/* End Contest Section */
