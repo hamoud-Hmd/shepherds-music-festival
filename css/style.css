@@ -439,6 +439,7 @@ ul.sub-nav.visible {
 	top: 10px;
 	right: 10px;
 	color: var(--light-color);
+	/* fuck you */
 }
 
 .modal-close i {
