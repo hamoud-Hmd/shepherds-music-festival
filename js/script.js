@@ -18,20 +18,20 @@ async function fetchData() {
 }
 fetchData();
 
-const commissionFactory = (
-	title,
-	info,
-	image,
-	commissionHead,
-	tel,
-	email,
-	members
-) => {
-	return { title, info, image, commissionHead, tel, email, members };
-};
-const memberFactory = (name, image, info, tel, email) => {
-	return { name, image, info, tel, email };
-};
+// const commissionFactory = (
+// 	title,
+// 	info,
+// 	image,
+// 	commissionHead,
+// 	tel,
+// 	email,
+// 	members
+// ) => {
+// 	return { title, info, image, commissionHead, tel, email, members };
+// };
+// const memberFactory = (name, image, info, tel, email) => {
+// 	return { name, image, info, tel, email };
+// };
 
 commissions.forEach(commission => {
 	commission.addEventListener('click', () => {
@@ -48,6 +48,7 @@ commissions.forEach(commission => {
 function displaycommitte(committe) {
 	const commissionCard = document.querySelector('.commission-card');
 	const memberContainer = document.querySelector('.commission-members');
+
 	let presidentInfo = '';
 	const com = committe[0];
 
@@ -82,7 +83,7 @@ function displaycommitte(committe) {
 								${member.description.substring(
 									0,
 									50
-								)}<span>...</span><a href="" style="text-decoration: underline; color: blue;">المزيد<a/>
+								)}<span>...</span><span class="read-more">المزيد</span>
 				</p>
 				<div class="member-contact">
 					<a href="tel:${member.tel}" class="member-tel"
@@ -100,21 +101,43 @@ function displaycommitte(committe) {
 		`;
 
 		memberCard.addEventListener('click', () => {
-			let mb = {};
-			async function fetchMember() {
-				const response = await fetch(`${url}api/member/${member.id}`);
-				const data = await response.json();
-				mb = mb = Object.assign(mb, data);
-			}
+			const modalBg = document.querySelector('.modal-bg');
+			const memberModal = document.querySelector('.member-modal');
+			const memberContent = document.querySelector('.member-content');
 
-			fetchMember();
-			console.log(mb);
+			memberContent.innerHTML = `
+			<h2 class="name">${member.name}</h2>
+			<p class="description rtl">
+					${member.description}	
+			</p>
+
+			<div class="contact-wrapper">
+						<div class="image-container">
+							<img src="${url}/${member.image}" alt="${member.name}" />
+						</div>
+						<div class="contact-info">
+							<span><a href="tel:${member.tel}" class="member-tel"
+						style="color: white;"><i class="fab fa-whatsapp mr-1"></i>${member.tel}</a
+					></span>
+							<span>	<a 
+					href="mailto:${member.email}?Subject=subject message"
+					target="_blank"
+					class="member-email ltr" style="color: white;"
+				>
+					<i class="far fa-envelope mr-1"></i>${member.email}
+				</a></span>
+						</div>
+					</div>
+			`;
+			//
+
+			modalBg.classList.add('visible');
+			memberModal.classList.add('visible');
 		});
 
 		memberContainer.append(memberCard);
 	});
 	if (com.president !== null) {
-		console.log(com.president.member.name);
 		presidentInfo = `
 		<div>
 			<div class="commission-contact">

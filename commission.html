@@ -91,6 +91,14 @@
 			</div>
 		</div>
 
+		<div class="modal-bg">
+			<div class="member-modal">
+				<div class="modal-close"><span>X</span></div>
+
+				<div class="member-content"></div>
+			</div>
+		</div>
+
 		<footer class="footer bg-primary">
 			<div class="container">
 				<div class="social">
@@ -105,9 +113,20 @@
 		<script type="text/javascript" src="js/vanilla-tilt.js"></script>
 		<script type="text/javascript">
 			const modalClose = document.querySelector('.modal-close i');
+			const modalMemberClose = document.querySelector(
+				'.member-modal .modal-close span'
+			);
 			const modal = document.querySelector('.commission-modal');
+			const modalBg = document.querySelector('.modal-bg');
+			const memberModal = document.querySelector('.member-modal');
+
 			modalClose.addEventListener('click', () => {
 				modal.classList.remove('visible');
+			});
+
+			modalMemberClose.addEventListener('click', () => {
+				modalBg.classList.remove('visible');
+				memberModal.classList.remove('visible');
 			});
 			// VanillaTilt.init(document.querySelectorAll(".member-card"), {
 			// 	max: 25,
