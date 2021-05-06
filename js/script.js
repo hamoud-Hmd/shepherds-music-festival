@@ -3,6 +3,7 @@ const subNavItems = document.querySelectorAll('.sub-nav > li');
 const hamburgerBtn = document.querySelector('.icon');
 const aside = document.getElementById('aside');
 const commissions = document.querySelectorAll('.commissions .btn');
+const scrollUpBtn = document.getElementById('scroll-to-top');
 let asideIsOpen = false;
 const toggler = document.querySelector('.toggler');
 toggler.checked = false;
@@ -17,6 +18,20 @@ async function fetchData() {
 	commissionArray = data;
 }
 fetchData();
+
+// Scroll to top
+scrollUpBtn.addEventListener('click', () => {
+	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+});
+
+window.addEventListener('scroll', () => {
+	if (window.pageYOffset >= window.innerHeight) {
+		scrollUpBtn.classList.add('active');
+	} else {
+		scrollUpBtn.classList.remove('active');
+	}
+});
+// End Scroll to top
 
 // const commissionFactory = (
 // 	title,

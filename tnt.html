@@ -28,7 +28,6 @@
 		<header class="header" id="home-header">
 			<div class="container">
 				<img src="images/logo.png" alt="" class="logo" />
-				<img src="images/text.png" alt="" class="logo-text" />
 				<div class="links">
 					<input type="checkbox" class="toggler" disabled />
 					<div class="icon">
@@ -130,6 +129,10 @@
 				</div>
 			</div>
 		</section>
+		<!-- scroll button -->
+		<button id="scroll-to-top">
+			<i class="fas fa-arrow-up"></i>
+		</button>
 		<!-- Footer -->
 		<footer class="footer bg-primary">
 			<div class="container">
@@ -150,6 +153,7 @@
 			const shadow = document.querySelector('.shadow');
 			const section = document.querySelector('.tnt-section');
 			const opacity = document.querySelectorAll('.opacity');
+			const sky = document.querySelector('.sky');
 
 			let header_height = header.offsetHeight;
 			let section_height = section.offsetHeight;
@@ -157,7 +161,7 @@
 			window.addEventListener('scroll', () => {
 				let scroll = window.pageYOffset;
 				let sectionY = section.getBoundingClientRect();
-
+				// sky.style.height
 				translate.forEach(el => {
 					let speed = el.dataset.speed;
 					el.style.transform = `translateY(${scroll * speed}px)`;
