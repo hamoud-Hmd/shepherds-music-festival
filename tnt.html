@@ -21,8 +21,41 @@
 			rel="stylesheet"
 		/>
 
+		<!-- Swiper.js css cdn -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/swiper/swiper-bundle.min.css"
+		/>
 		<!-- Main Script -->
 		<script src="js/script.js" defer></script>
+
+		<style>
+			.swiper-container {
+				width: 100%;
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+
+			.swiper-slide {
+				background-position: center;
+				background-size: cover;
+				width: 300px;
+				height: 300px;
+				background-color: #000;
+				-webkit-box-reflect: below 1px
+					linear-gradient(transparent, transparent, transparent);
+				border: 2px solid gray;
+
+				border-radius: 10px;
+				overflow: hidden;
+			}
+
+			.swiper-slide img {
+				display: block;
+				width: 100%;
+				object-fit: cover;
+			}
+		</style>
 	</head>
 	<body id="home">
 		<header class="header" id="home-header">
@@ -55,6 +88,9 @@
 
 							<li><a href="info.html">من نحن</a></li>
 							<li><a href="contact.html">تواصل معنا</a></li>
+							<li class="langauage-selection ltr">
+								<a href="#" >English</i></a>
+							</li>
 						</ul>
 					</aside>
 				</div>
@@ -129,6 +165,37 @@
 				</div>
 			</div>
 		</section>
+		<section id="tnt-gallery">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="images/preview/image1.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image2.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image3.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image4.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image10.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image5.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image6.jpg" alt="" />
+					</div>
+					<div class="swiper-slide">
+						<img src="images/preview/image7.jpg" alt="" />
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
 		<!-- scroll button -->
 		<button id="scroll-to-top">
 			<i class="fas fa-arrow-up"></i>
@@ -146,6 +213,8 @@
 			</div>
 		</footer>
 
+		<!-- Swiper.js script cdn -->
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 		<script>
 			const translate = document.querySelectorAll('.translate');
 			const big_title = document.querySelector('.hero');
@@ -173,6 +242,26 @@
 				opacity.forEach(element => {
 					element.style.opacity = scroll / (sectionY.top + section_height / 2);
 				});
+			});
+		</script>
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				effect: 'coverflow',
+				grabCursor: true,
+				centeredSlides: true,
+				slidesPerView: 'auto',
+				coverflowEffect: {
+					rotate: 20,
+					stretch: 0,
+					depth: 300,
+					modifier: 1,
+					slideShadows: true,
+				},
+				loop: true,
+				// autoplay: {
+				// 	delay: 2500,
+				// 	disableOnInteraction: false,
+				// },
 			});
 		</script>
 	</body>

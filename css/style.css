@@ -123,9 +123,31 @@ ul li {
 	transition: opacity 0.4s;
 	text-align: center;
 }
+.langauage-selection {
+	list-style: none;
+	position: relative;
+}
+.langauage-selection::after {
+	content: '';
+	position: absolute;
+	background: url(../images/usa.png) no-repeat center center / cover;
+	right: 0;
+	top: 60%;
+	transform: translate(0, -50%);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
 
+.langauage-selection a {
+	border-radius: 10px;
+	padding: 0.4rem 1rem;
+}
 .rtl {
-	direction: rtl;
+	direction: rtl !important;
+}
+ltr {
+	direction: ltr !important;
 }
 
 .btn-secondary {
@@ -221,7 +243,6 @@ ul li {
 }
 .header .links aside a:hover {
 	color: var(--secondary-color);
-	padding-right: 1rem;
 }
 
 .header .links aside a.current {
@@ -1277,6 +1298,12 @@ ul.sub-nav.visible {
 	}
 }
 
+#tnt-gallery {
+	min-height: calc(100vh - --var(--header-height));
+	background-color: #111;
+}
+/*End tnt */
+
 /* Contest Section */
 #contest-section {
 	min-height: calc(100vh - var(--header-height));
@@ -1284,12 +1311,15 @@ ul.sub-nav.visible {
 	overflow-x: auto;
 }
 
+#contest-section .container {
+	padding: 2rem;
+}
+
 #contest-section .contest-wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
 	gap: 3rem;
 }
 #contest-section .contest-wrapper .contest-card {
@@ -1304,6 +1334,11 @@ ul.sub-nav.visible {
 	background-color: white;
 }
 
+@media (max-width: 768px) {
+	#contest-section .contest-wrapper .contest-card {
+		width: 100%;
+	}
+}
 #contest-section .contest-wrapper .contest-card .contest-img {
 	position: relative;
 	background-color: yellowgreen;
