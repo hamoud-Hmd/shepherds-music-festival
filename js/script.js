@@ -88,11 +88,13 @@ function displaycommitte(committe) {
 		memberCard.classList.add('member-card');
 		memberCard.innerHTML = `
 		        ${memberType}
+				<a href="${url}/${member.image}" target="_blank">
 				<img
 					src="${url}/${member.image}"
 					alt=""
 					class="member-image"
 				/>
+				</a>
 				<h3 class="member-name">${member.name}</h3>
                 <p class="member-cv">
 								${member.description.substring(
