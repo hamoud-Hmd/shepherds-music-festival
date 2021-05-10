@@ -860,8 +860,8 @@ ul.sub-nav.visible {
 
 /* Start Contact Form */
 .contact-main {
-	/* min-height: calc(100vh -  var(--header-height)); */
-	padding: 20px;
+	min-height: calc(100vh - var(--header-height));
+	padding: 5rem 2rem 2rem;
 	text-align: center;
 }
 .contact-main .container {
