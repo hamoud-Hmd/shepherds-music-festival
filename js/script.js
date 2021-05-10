@@ -4,6 +4,7 @@ const hamburgerBtn = document.querySelector('.icon');
 const aside = document.getElementById('aside');
 const commissions = document.querySelectorAll('.commissions .btn');
 const scrollUpBtn = document.getElementById('scroll-to-top');
+const header = document.querySelector('header');
 let asideIsOpen = false;
 const toggler = document.querySelector('.toggler');
 toggler.checked = false;
@@ -19,12 +20,25 @@ async function fetchData() {
 }
 fetchData();
 
+// show and hide the header or navbar
+let lastScrollTop = 0;
+
+// End show and hide the header or navbar
+
 // Scroll to top
 scrollUpBtn.addEventListener('click', () => {
 	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 });
 
 window.addEventListener('scroll', () => {
+	let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	if (scrollTop > lastScrollTop) {
+		header.style.top = '-71px';
+	} else {
+		header.style.top = '0';
+	}
+	lastScrollTop = scrollTop;
+
 	if (window.pageYOffset >= window.innerHeight) {
 		scrollUpBtn.classList.add('active');
 	} else {

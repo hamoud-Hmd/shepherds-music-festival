@@ -204,6 +204,7 @@ ltr {
 	background: var(--light-color);
 	box-shadow: 0 -3px 4px 4px rgba(83, 83, 83, 0.473);
 	z-index: 44;
+	transition: all 0.4s;
 }
 
 .header .container {
