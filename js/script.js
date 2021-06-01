@@ -30,21 +30,22 @@ scrollUpBtn.addEventListener('click', () => {
 	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 });
 
-window.addEventListener('scroll', () => {
-	let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	if (scrollTop > lastScrollTop) {
-		header.style.top = '-71px';
-	} else {
-		header.style.top = '0';
-	}
-	lastScrollTop = scrollTop;
+// window.addEventListener('scroll', () => {
+// 	let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+// 	if (scrollTop > lastScrollTop) {
+// 		header.style.top = '-71px';
+// 	} else {
+// 		header.style.top = '0';
+// 	}
+// 	lastScrollTop = scrollTop;
 
-	if (window.pageYOffset >= window.innerHeight) {
-		scrollUpBtn.classList.add('active');
-	} else {
-		scrollUpBtn.classList.remove('active');
-	}
-});
+// 	if (window.pageYOffset >= window.innerHeight) {
+// 		scrollUpBtn.classList.add('active');
+// 	} else {
+// 		scrollUpBtn.classList.remove('active');
+// 	}
+// });
+
 // End Scroll to top
 
 // const commissionFactory = (
